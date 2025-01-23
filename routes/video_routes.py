@@ -9,15 +9,20 @@ UPLOAD_FOLDER = "uploads"
 @video_routes.route("/upload", methods=["POST"])
 def upload_video():
     if "file" not in request.files:
-        return jsonify({"error": "No file part"}), 400
+        return jsonify({"error": "No file part in the request"}), 400
     
     file = request.files["file"]
     title = request.form.get("title")
     description = request.form.get("description")
+
+     file = request.files["file"]
+    if file.filename == "":
+        return jsonify({"error": "No selected file"}), 400
     
     if file:
         file_path = os.path.join(UPLOAD_FOLDER, file.filename)
         file.save(file_path)
+        return jsonify({"message": "File uploaded successfully", "file_path": file_path}), 201
         
         # Process video with FFmpeg
         processed_path = process_video(file_path, UPLOAD_FOLDER)
