@@ -24,8 +24,14 @@ def upload_video():
         
         # Fetch IMDb metadata
         imdb_data = fetch_imdb_metadata(title)
-        
-        # Save to database (example)
+        #Generate Thumbnail
+        thumbnail_path = generate_thumbnail(file_path, UPLOAD_FOLDER)
+
+        # Save to database
         # Save processed_path and metadata to MySQL
         
-        return jsonify({"message": "Video uploaded successfully!"}), 201
+        return jsonify({
+            "message": "Video uploaded successfully!",
+            "video_url": processed_path,
+            "thumbnail_url": thumbnail_path,
+            }), 201
