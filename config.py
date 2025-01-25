@@ -1,18 +1,15 @@
 import os
 
-class Config:
-    SECRET_KEY = "your_secret_key"
-    JWT_SECRET_KEY = "your_jwt_secret_key"
-    
-    # MySQL Config
-    MYSQL_HOST = "localhost"
-    MYSQL_USER = "root"
-    MYSQL_PASSWORD = "your_mysql_password"
-    MYSQL_DB = "streamvidz_db"
-    
-    # MongoDB Config
-    MONGO_URI = "mongodb://localhost:27017/streamvidz"
+# Flask App Configuration
+DEBUG = True  # Set to False in production
+SECRET_KEY = os.getenv("SECRET_KEY", "4f55db8a3dmsh66182f4a18deaedp1b0a6bjsn9c5930f0a56a")
 
-    # IMDb API
-    IMDB_API_KEY = "your_imdb_api_key"
+# MongoDB Configuration
+MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/streaming_app")
 
+# IMDb API Configuration
+RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY", "4f55db8a3dmsh66182f4a18deaedp1b0a6bjsn9c5930f0a56a")  
+RAPIDAPI_HOST = "imdb8.p.rapidapi.com"
+
+# MongoDB URI configuration
+MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/streaming_app")
