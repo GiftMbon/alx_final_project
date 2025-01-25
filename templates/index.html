@@ -4,40 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StreamVidz</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>StreamVidz</h1>
-        
-        <!-- Upload Section -->
-        <section id="upload">
-            <h2>Upload Video</h2>
-            <form id="uploadForm" enctype="multipart/form-data">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
-                
-                <label for="description">Description:</label>
-                <textarea id="description" name="description"></textarea>
-                
-                <label for="file">Video File:</label>
-                <input type="file" id="file" name="file" accept="video/*" required>
-                
-                <button type="submit">Upload</button>
-            </form>
-        </section>
+    <h1>Welcome to StreamVidz</h1>
+    <a href="{{ url_for('video_routes.upload_video') }}">Upload Video</a>
+    <a href="{{ url_for('video_routes.stream_video', filename='example.mp4') }}">Stream Video</a>
 
-        <!-- Search Section -->
-        <section id="search">
-            <h2>Search Videos</h2>
-            <form id="searchForm">
-                <input type="text" id="query" placeholder="Search by title or description">
-                <button type="submit">Search</button>
-            </form>
-            <div id="results"></div>
-        </section>
-    </div>
-    <script src="/static/js/app.js"></script>
+   <!-- Search Form -->
+    <form action="{{ url_for('video_routes.search') }}" method="GET">
+        <input type="text" name="query" placeholder="Search for videos..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Video Options</h2>
+    <a href="{{ url_for('video_routes.upload_video') }}">Upload Video</a>
+
+    <!-- Display Search Results -->
+    {% if results %}
+        <h2>Search Results:</h2>
+        <ul>
+            {% for video in results %}
+                <li>
+                    <a href="{{ url_for('video_routes.stream_video', filename=video) }}">{{ video }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 </body>
 </html>
+
 
