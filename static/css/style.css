@@ -1,22 +1,89 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Georgia, Serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #000;
+    color: #fff;
 }
 
 header {
-    background-color: #333;
+    background-color: #000; 
     color: #fff;
+    padding: 1rem;
     text-align: center;
-    padding: 10px 0;
+}
+
+header h1 {
+    margin: 0;
+    color: red;
+    font-size: 6rem; 
+}
+
+form {
+    margin: 1rem 0;
+}
+
+input[type="text"] {
+    padding: 0.5rem;
+    width: 70%;
+    max-width: 400px;
+    margin-right: 0.5rem;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: red;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: darkred;
 }
 
 main {
-    max-width: 800px;
-    margin: 20px auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
 }
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.movie-item {
+    background-color: #222;
+    border: 1px solid #444; 
+    border-radius: 5px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+.movie-item img {
+    border-radius: 5px;
+    max-width: 100%;
+    height: auto;
+}
+
+.movie-item h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: red; 
+}
+
+.movie-item a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.movie-item a:hover {
+    text-decoration: underline;
+    color: red;
+}
+

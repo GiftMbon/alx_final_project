@@ -21,7 +21,7 @@ db = client["streaming_app"]
 favorites_collection = db["favorites"]
 
 # IMDb API Configuration
-RAPIDAPI_KEY = "4f55db8a3dmsh66182f4a18deaedp1b0a6bjsn9c5930f0a56a"
+RAPIDAPI_KEY = "eb20a01318mshfec66769bdb09e9p1573b4jsne94cfcd220ed"
 RAPIDAPI_HOST = "imdb8.p.rapidapi.com"
 
 headers = {
@@ -47,6 +47,27 @@ def search():
         else:
             return render_template('search_results.html', error="Error fetching results from IMDb.")
     return redirect(url_for('home'))
+
+
+# Route to the homepage
+@app.route("/", methods=["GET", "POST"])
+def index():
+    featured_movies = get_featured_movies()
+    return render_template("index.html", featured_movies=featured_movies)
+# Function to get featured movies.
+def get_featured_movies():
+    featured_movies = [
+        {"title": "Inception", "image": "https://m.media-amazon.com/images/I/51JYx71xXjL._AC_SY679_.jpg"},
+        {"title": "The Dark Knight", "image": "https://m.media-amazon.com/images/I/81XubVOtW1L._AC_SY679_.jpg"},
+        {"title": "Titanic", "image": "https://m.media-amazon.com/images/I/71WcJ5LfbLL._AC_SY679_.jpg"},
+        {"title": "The Matrix", "image": "https://m.media-amazon.com/images/I/51EG732BV3L._AC_SY679_.jpg"},
+        {"title": "Avengers: Endgame", "image": "https://m.media-amazon.com/images/I/91X0lWcqJ-L._AC_SY679_.jpg"},
+        {"title": "Spider-Man: No Way Home", "image": "https://m.media-amazon.com/images/I/81vjbWyl5QL._AC_SY679_.jpg"},
+        {"title": "The Godfather", "image": "https://m.media-amazon.com/images/I/51z1JwsEKvL._AC_SY679_.jpg"},
+        {"title": "Forrest Gump", "image": "https://m.media-amazon.com/images/I/71fn2HDZz8L._AC_SY679_.jpg"}
+    ]
+    return featured_movies
+
 
 @app.route('/add_favorite', methods=['POST'])
 def add_favorite():

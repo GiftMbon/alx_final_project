@@ -8,13 +8,29 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to StreamVidz</h1>
+        <h1>STREAMVIDZ</h1>
     </header>
     <main>
         <form action="/search" method="POST">
             <input type="text" name="query" placeholder="Search IMDb for movies..." required>
             <button type="submit">Search</button>
         </form>
+	<!-- Featured Movies Section -->
+    <section id="featured-movies">
+        <h2>Featured Movies</h2>
+        <div class="movie-grid">
+            {% for movie in featured_movies %}
+                <div class="movie-card">
+                    <img src="{{ movie.image }}" alt="{{ movie.title }} Poster" class="movie-poster">
+                    <h3>{{ movie.title }}</h3>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 StreamVidz. All rights reserved.</p>
+    </footer>
+
     </main>
 </body>
 </html>
