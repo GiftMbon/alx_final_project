@@ -19,12 +19,11 @@
                         <img src="{{ movie.get('image', {}).get('url', '') }}" alt="Movie Poster" width="100">
                         <h2>{{ movie.get('title', 'Unknown') }}</h2>
                         <p>Year: {{ movie.get('year', 'N/A') }}</p>
-                        <form action="{{ url_for('add_favorite') }}" method="POST">
+                        <form>
                             <input type="hidden" name="id" value="{{ movie.get('id') }}">
                             <input type="hidden" name="title" value="{{ movie.get('title') }}">
                             <input type="hidden" name="image" value="{{ movie.get('image', {}).get('url', '') }}">
                             <input type="hidden" name="year" value="{{ movie.get('year', '') }}">
-                            <button type="submit">Add to Favorites</button>
                         </form>
                     </li>
                 {% endfor %}

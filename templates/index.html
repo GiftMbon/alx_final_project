@@ -6,15 +6,15 @@
     <title>StreamVidz</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<bodiy>
+<body>
     <header>
         <h1>STREAMVIDZ</h1>
     </header>
     <main>
-        <form action="/search" method="POST">
-            <input type="text" name="query" placeholder="Search IMDb for movies..." required>
-            <button type="submit">Search</button>
-        </form>
+	    <form action="/search" method="POST">
+		    <input type="text" name="query" placeholder="Search IMDb for movies..." required>
+		    <button type="submit">Search</button>
+	    </form>
 	<!-- Featured Movies Section -->
     <section id="featured-movies">
 	    <h2 class="featured-movies-header">Featured Movies</h2>
