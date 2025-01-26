@@ -1,4 +1,4 @@
-##StreamVidz
+**StreamVidz**
 
 ##SCREENSHOT OF HOMEPAGE
 ![Screenshot 2025-01-26 223234](https://github.com/user-attachments/assets/cabe0e5a-94f4-4cb5-88b0-db2e667eefaa)
