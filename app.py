@@ -36,7 +36,7 @@ def search():
             data = response.json()
             results = data.get("results", [])
             for movie in results:
-                save_movie_to_db(movie)  # Save to MongoDB
+                save_movie_to_db(movie)  #Save to MongoDB
             return render_template("search_results.html", results=results)
         else:
             return render_template("search_results.html", error="Error fetching results.")

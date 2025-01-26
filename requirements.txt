@@ -1,0 +1,5 @@
+python3
+Flask
+MongoDB
+FFmpeg
+RapidApi #for IMDB API's
