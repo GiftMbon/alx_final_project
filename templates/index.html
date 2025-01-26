@@ -19,13 +19,19 @@
     <section id="featured-movies">
 	    <h2 class="featured-movies-header">Featured Movies</h2>
         <div class="movie-grid">
-            {% for movie in featured_movies %}
-                <div class="movie-card">
-			<img src="{{ movie['image'] }}" alt="{{ movie['title'] }} Poster" class="movie-poster">
-                    <h3>{{ movie['title'] }}</h3>
-		    <p>{{ movie['year'] }}</p>
-                </div>
-            {% endfor %}
+		<ul>
+			<li>
+				{% for movie in featured_movies %}
+				<div class="movie-card">
+					<img src="{{ movie['image'] }}" alt="{{ movie['title'] }} Poster" class="movie-poster">
+					<h3>{{ movie['title'] }}</h3>
+					<p>{{ movie['year'] }}</p>
+					<a href="{{ url_for('stream', movie_id=movie.id) }}">Watch Now</a>
+			</li>
+
+				</div>
+				{% endfor %}
+		</ul>
         </div>
     </section>
     <footer>
