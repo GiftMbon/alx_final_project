@@ -49,24 +49,39 @@ def search():
     return redirect(url_for('home'))
 
 
+#Fetch movie data from RapidAPI and store it in MongoDB
+def fetch_and_store_movies():
+    headers = {
+        "x-rapidapi-key": RAPIDAPI_KEY,
+        "x-rapidapi-host": "imdb8.p.rapidapi.com"
+    }
+
+    response = requests.get(BASE_URL, headers=headers)
+
+    if response.status_code == 200:
+        data = response.json()
+        movies = data.get("items", [])  #items contains movie data
+        for movie in movies:
+            movie_document = {
+                'id': movie['id'],
+                'title': movie['title'],
+                'year': movie['year'],
+                'image': movie['image'],
+                'description': movie['description'],
+            }
+            #insert movies
+            movies_collection.update_one(
+                {'id': movie['id']},
+                {'$set': movie_document},
+                upsert=True
+            )
 # Route to the homepage
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET"])
 def index():
-    featured_movies = get_featured_movies()
+    #fetch featured movies from MongoDB
+    featured_movies = list(movies_collection.find().limit(8))  #fetch 8 movies from MongoDB
     return render_template("index.html", featured_movies=featured_movies)
-# Function to get featured movies.
-def get_featured_movies():
-    featured_movies = [
-        {"title": "Inception", "image": "https://m.media-amazon.com/images/I/51JYx71xXjL._AC_SY679_.jpg"},
-        {"title": "The Dark Knight", "image": "https://m.media-amazon.com/images/I/81XubVOtW1L._AC_SY679_.jpg"},
-        {"title": "Titanic", "image": "https://m.media-amazon.com/images/I/71WcJ5LfbLL._AC_SY679_.jpg"},
-        {"title": "The Matrix", "image": "https://m.media-amazon.com/images/I/51EG732BV3L._AC_SY679_.jpg"},
-        {"title": "Avengers: Endgame", "image": "https://m.media-amazon.com/images/I/91X0lWcqJ-L._AC_SY679_.jpg"},
-        {"title": "Spider-Man: No Way Home", "image": "https://m.media-amazon.com/images/I/81vjbWyl5QL._AC_SY679_.jpg"},
-        {"title": "The Godfather", "image": "https://m.media-amazon.com/images/I/51z1JwsEKvL._AC_SY679_.jpg"},
-        {"title": "Forrest Gump", "image": "https://m.media-amazon.com/images/I/71fn2HDZz8L._AC_SY679_.jpg"}
-    ]
-    return featured_movies
+
 
 
 @app.route('/add_favorite', methods=['POST'])
@@ -92,5 +107,6 @@ def remove_favorite(movie_id):
     return redirect(url_for('favorites'))
 
 if __name__ == '__main__':
+    fetch_and_store_movies()
     app.run(debug=True)
 
