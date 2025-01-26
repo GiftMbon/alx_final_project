@@ -1,8 +1,12 @@
 StreamVidz
 
+##SCREENSHOT OF HOMEPAGE
+![Screenshot 2025-01-26 223234](https://github.com/user-attachments/assets/cabe0e5a-94f4-4cb5-88b0-db2e667eefaa)
+
 
 StreamVidz is a movie streaming web application built with Flask and MongoDB. It integrates with the IMDb API via RapidAPI to fetch movie data, stores it in MongoDB, and allows users to search for movies and stream search results using FFmpeg. The homepage displays a selection of featured movies with their posters and titles.
-#Features
+
+##Features
 1.	Fetch Movies from IMDb API
 Fetch movie data (titles, posters, descriptions) from the IMDb API via RapidAPI and store it in MongoDB.
 2.	Featured Movies on Homepage
@@ -16,19 +20,19 @@ Users can add or remove movies from a favorites list, which is stored in MongoDB
 6.	Responsive UI
 A modern, dark-themed interface with a responsive design for mobile and desktop views.
 
-#Technologies Used
+##Technologies Used
 	•	Backend: Flask (Python)
 	•	Database: MongoDB
 	•	Frontend: HTML, CSS
 	•	API Integration: IMDb API via RapidAPI
 	•	Video Streaming: FFmpeg
-#Installation
-Prerequisites
+##Installation
+#Prerequisites
 	•	Python 3
 	•	MongoDB installed
 	•	FFmpeg installed on your system
 	•	A RapidAPI account and IMDb API key
-Steps
+#Steps
 	1.	Clone the repository:
 git clone https://github.com/GiftMbon/alx_final_project.git
 cd alx_final_project
@@ -48,13 +52,13 @@ python3 app.py
 	7.	Access the application:
 	•	Open your browser and navigate to http://127.0.0.1:5000.
 
-#API Integration
+##API Integration
 	•	IMDb API: Used to fetch movie data (title, description, poster, etc.).
 	•	FFmpeg: Used to stream video results from movie URLs.
  
-#Troubleshooting
+##Troubleshooting
 	•	Invalid API Key: Ensure your RapidAPI IMDb API key is correct and hasn’t expired.
 	•	MongoDB Connection Errors: Verify that your MongoDB URI is correctly configured and the database is running.
 	•	FFmpeg Issues: Ensure FFmpeg is installed and available in your system’s PATH.
-#License
+##License
 
