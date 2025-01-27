@@ -7,25 +7,26 @@
 StreamVidz is a movie streaming web application built with Flask and MongoDB. It integrates with the IMDb API via RapidAPI to fetch movie data, stores it in MongoDB, and allows users to search for movies and stream search results using FFmpeg. The homepage displays a selection of featured movies with their posters and titles.
 
 ##Features
-1.	Fetch Movies from IMDb API
+1. Fetch Movies from IMDb API
 Fetch movie data (titles, posters, descriptions) from the IMDb API via RapidAPI and store it in MongoDB.
-2.	Featured Movies on Homepage
+2. Featured Movies on Homepage
 Display up to 8 featured movies on the homepage in a grid format with their posters and titles.
-3.	Search Functionality
+3. Search Functionality
 Users can search for movies via a search bar. The app fetches search results from IMDb, displays them, and stores the results in MongoDB.
-4.	Stream Search Results
+4. Stream Search Results
 Search results are integrated with FFmpeg to allow seamless video streaming.
-5.	Favorites Management
+5. Favorites Management
 Users can add or remove movies from a favorites list, which is stored in MongoDB.
-6.	Responsive UI
+6. Responsive UI
 A modern, dark-themed interface with a responsive design for mobile and desktop views.
 
 ##Technologies Used
-	•	Backend: Flask (Python)
-	•	Database: MongoDB
-	•	Frontend: HTML, CSS
-	•	API Integration: IMDb API via RapidAPI
-	•	Video Streaming: FFmpeg
+1. Backend: Flask (Python)
+2. Database: MongoDB
+3. AFrontend: HTML, CSS
+4. API Integration: IMDb API via RapidAPI
+5. Video Streaming: FFmpeg.
+
 ##Installation
 #Prerequisites
 	•	Python 3
