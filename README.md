@@ -45,8 +45,8 @@ source venv/bin/activate
 3. Install the required dependencies:
 pip install -r requirements.txt
 4. Set up your MongoDB:
-a. Ensure MongoDB is running locally or remotely.
-b. Update the MongoDB URI in the config.py file or set it as an environment variable:
+-Ensure MongoDB is running locally or remotely.
+-Update the MongoDB URI in the config.py file or set it as an environment variable:
 MONGO_URI = "mongodb://localhost:27017/streamvidz"
 5. Configure your RapidAPI key:
 -Replace your_api_key_here in app.py with your RapidAPI IMDb API key.
