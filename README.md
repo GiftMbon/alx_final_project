@@ -29,37 +29,40 @@ A modern, dark-themed interface with a responsive design for mobile and desktop 
 
 ##Installation
 #Prerequisites
-	•	Python 3
-	•	MongoDB installed
-	•	FFmpeg installed on your system
-	•	A RapidAPI account and IMDb API key
+1. Python 3
+2. MongoDB installed
+3. FFmpeg installed on your system
+4. A RapidAPI account and IMDb API key
+
+
 #Steps
-	1.	Clone the repository:
+1. Clone the repository:
 git clone https://github.com/GiftMbon/alx_final_project.git
 cd alx_final_project
-	2.	Create a virtual environment and activate it:
+2. Create a virtual environment and activate it:
 python3 -m venv venv
 source venv/bin/activate
-	3.	Install the required dependencies:
+3. Install the required dependencies:
 pip install -r requirements.txt
-	4.	Set up your MongoDB:
-	•	Ensure MongoDB is running locally or remotely.
-	•	Update the MongoDB URI in the config.py file or set it as an environment variable:
+4. Set up your MongoDB:
+-Ensure MongoDB is running locally or remotely.
+-Update the MongoDB URI in the config.py file or set it as an environment variable:
 MONGO_URI = "mongodb://localhost:27017/streamvidz"
-	5.	Configure your RapidAPI key:
-	•	Replace your_api_key_here in app.py with your RapidAPI IMDb API key.
-	6.	Run the application:
+5. Configure your RapidAPI key:
+-Replace your_api_key_here in app.py with your RapidAPI IMDb API key.
+6. Run the application:
 python3 app.py
-	7.	Access the application:
-	•	Open your browser and navigate to http://127.0.0.1:5000.
+7. Access the application:
+-Open your browser and navigate to http://127.0.0.1:5000.
 
 ##API Integration
-	•	IMDb API: Used to fetch movie data (title, description, poster, etc.).
-	•	FFmpeg: Used to stream video results from movie URLs.
+-IMDb API: Used to fetch movie data (title, description, poster, etc.).
+-FFmpeg: Used to stream video results from movie URLs.
  
 ##Troubleshooting
-	•	Invalid API Key: Ensure your RapidAPI IMDb API key is correct and hasn’t expired.
-	•	MongoDB Connection Errors: Verify that your MongoDB URI is correctly configured and the database is running.
-	•	FFmpeg Issues: Ensure FFmpeg is installed and available in your system’s PATH.
+-Invalid API Key: Ensure your RapidAPI IMDb API key is correct and hasn’t expired.
+-MongoDB Connection Errors: Verify that your MongoDB URI is correctly configured and the database is running.
+-FFmpeg Issues: Ensure FFmpeg is installed and available in your system’s PATH.
+
 ##License
 
